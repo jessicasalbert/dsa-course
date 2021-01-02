@@ -35,9 +35,33 @@ class SinglyLinkedList {
         this.length += 1;
         return this;
     }
+
+    pop() {
+        if (!this.head) return undefined;
+
+        let current = this.head;
+        let prev = current;
+        while (current.next) {
+            prev = current;
+            current = current.next;
+        }
+        const popped = this.tail
+        this.tail = prev;
+        this.tail.next = null;
+        this.length--;
+        if (this.length === 0) {
+            this.head = 0;
+            this.tail = 0;
+        }
+        return popped;
+    }
 }
 
 const list = new SinglyLinkedList()
 list.push("HEllo")
 list.push("Goodbye")
+list.push("sir")
+console.log(list)
+
+console.log(list.pop());
 console.log(list)
