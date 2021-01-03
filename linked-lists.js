@@ -17,6 +17,7 @@ class SinglyLinkedList {
         this.length = 0;
     }
 
+    // O(1)
     unshift(val) {
         const newNode = new Node(val)
         if (!this.head) {
@@ -30,6 +31,7 @@ class SinglyLinkedList {
         return this;
     }
 
+    // O(1)
     shift() {
         if (!this.head) return undefined;
         let prevHead = this.head;
@@ -38,6 +40,7 @@ class SinglyLinkedList {
         return prevHead;
     }
 
+    // O(1)
     push(val) {
         const newNode = new Node(val);
         if (!this.head) {
@@ -51,6 +54,7 @@ class SinglyLinkedList {
         return this;
     }
 
+    // O(n)
     pop() {
         if (!this.head) return undefined;
 
@@ -90,6 +94,7 @@ class SinglyLinkedList {
         }
     }
 
+    // O(1)
     insert(index, val) {
         if (index < 0 || index > this.length) return false;
         if (index === this.length) {
@@ -108,7 +113,7 @@ class SinglyLinkedList {
         this.length++
         return true;
     }
-
+    // O(n) or O(1)
     remove(index) {
         if (!this.get(index)) return false;
         if (index === 0) {
@@ -124,7 +129,7 @@ class SinglyLinkedList {
         this.length--;
         return removed;
     }
-
+    // O(n)
     reverse() {
         if (this.length < 2) return this;
 
