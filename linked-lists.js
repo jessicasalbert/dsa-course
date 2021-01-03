@@ -65,10 +65,29 @@ class SinglyLinkedList {
         this.tail.next = null;
         this.length--;
         if (this.length === 0) {
-            this.head = 0;
-            this.tail = 0;
+            this.head = null;
+            this.tail = null;
         }
         return popped;
+    }
+
+    get(index) {
+        if (index < 0 || index >= this.length) return null;
+        let count = 0;
+        let node = this.head
+        while (count < index) {
+            node = node.next;
+            count++;
+        }
+        return node;
+    }
+
+    set(index, val) {
+        if (!this.get(index)) return false;
+        else {
+            this.get(index).val = val;
+            return true;
+        }
     }
 }
 
