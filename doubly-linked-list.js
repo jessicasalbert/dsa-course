@@ -103,6 +103,76 @@ class DoublyLinkedList {
         return true;
     }
 
+    insert(index, val) {
+        const newNode = new Node(val)
+        const priorNode = this.get(index);
+        if (index > this.length) return false;
+        if (index === this.length) {
+            this.tail.next = newNode;
+            newNode.prev = this.tail;
+            this.tail = newNode;
+        } else if (index === 0) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            newNode.prev = priorNode.prev;
+            newNode.next = priorNode;
+            priorNode.prev = newNode;
+            newNode.prev.next = newNode;
+        } 
+        this.length++;
+        return true;   
+    }
+
+    insert(index, val) {
+        if (index > this.length || index < 0) return false;
+        if (index === 0) {
+            return !!this.unshift(val)
+        } else if (index === this.length) {
+            return !!this.push(val)
+        } else {
+            const newNode = new Node(val)
+            const priorNode = this.get(index);
+            newNode.prev = priorNode.prev;
+            newNode.next = priorNode;
+            priorNode.prev = newNode;
+            newNode.prev.next = newNode;
+            this.length++;
+            return true;
+        } 
+    }
+
+    insert(index, val) {
+        if (index > this.length || index < 0) return false;
+        if (index === 0) {
+            return !!this.unshift(val)
+        } else if (index === this.length) {
+            return !!this.push(val)
+        } else {
+            const newNode = new Node(val)
+            const priorNode = this.get(index);
+            newNode.prev = priorNode.prev;
+            newNode.next = priorNode;
+            priorNode.prev = newNode;
+            newNode.prev.next = newNode;
+            this.length++;
+            return true;
+        } 
+    }
+
+    remove(index) {
+        if (index === 0) return this.shift();
+        if (index === this.lenth - 1) return this.pop();
+        const node = this.get(index);
+        if (!node) return false;
+        node.prev.next = node.next;
+        node.next.prev = node.prev;
+        node.next = null;
+        node.prev = null;
+        this.length--
+        return node;
+    }
+
     print() {
         const arr = [];
         let node = this.head;
