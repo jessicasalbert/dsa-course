@@ -60,6 +60,20 @@ class DoublyLinkedList {
         return head;
     }
 
+    unshift(val) {
+        const newNode = new Node(val)
+        if (!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            this.head.prev = newNode;
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+        this.length++;
+        return this;
+    }
+
     print() {
         const arr = [];
         let node = this.head;
