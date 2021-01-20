@@ -50,4 +50,20 @@ class BST {
         }
         return false;
     }
+
+    bfs() {
+        const result = [];
+        const queue = [this.root];
+        while (queue.length > 0) {
+            if (queue[0].left) {
+                queue.push(queue[0].left)
+            }
+            if (queue[0].right) {
+                queue.push(queue[0].right)
+            }
+            result.push(queue[0])
+            queue.shift()
+        }
+        return result;
+    }
 }
