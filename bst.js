@@ -35,4 +35,19 @@ class BST {
             }
         }
     }
+
+    search(val) {
+        current = this.root;
+        while (current) {
+            if (current.val === val) {
+                return current;
+            }
+            if (current.val < val ) {
+                current = current.right;
+            } else {
+                current = current.left;
+            }
+        }
+        return false;
+    }
 }
