@@ -66,4 +66,24 @@ class BST {
         }
         return result;
     }
+
+    preorder() {
+        const result = [];
+
+        const helper = (node) => {
+            result.push(node.val)
+            if (node.left) {
+                helper(node.left)
+            }
+            if (node.right) {
+                helper(node.right)
+            }
+        }
+
+        if (!this.root) return result;
+        helper(this.root);
+        return result;
+
+    }
+
 }
