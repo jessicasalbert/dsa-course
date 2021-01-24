@@ -99,4 +99,18 @@ class BST {
         return result;
     }
 
+    inorder() {
+        const result = [];
+
+        const helper = (node) => {
+            if (node.left) helper(node.left);
+            result.push(node.val);
+            if (node.right) helper(node.right);
+        }
+
+        if (!this.root) return result;
+        helper(this.root);
+        return result;
+    }
+
 }
