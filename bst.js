@@ -83,7 +83,20 @@ class BST {
         if (!this.root) return result;
         helper(this.root);
         return result;
+    }
 
+    postorder() {
+        const result = [];
+
+        const helper = (node) => {
+            if (node.left) helper(node.left);
+            if (node.right) helper(node.right);
+            result.push(node.val);
+        }
+
+        if (!this.root) return result;
+        helper(this.root);
+        return result;
     }
 
 }
