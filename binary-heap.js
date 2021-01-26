@@ -19,6 +19,8 @@ class MaxBinaryHeap {
         return this.values;
     }
 
+    // Move last value to front, then sink it down 
+    
     extract() {
         if (this.values.length === 0) return undefined;
         if (this.values.length === 1) {
