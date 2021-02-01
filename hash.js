@@ -32,5 +32,31 @@ class HashTable {
         if (arr.length === 0) return false
         return arr[0][1];
     }
+
+    keys() {
+        const result = []
+        for (const x of this.keyMap) {
+            if (x) {
+                for (const i of x) {
+                    result.push(i[0])
+                }
+            }
+        }
+        return result
+    }
+
+    values() {
+        const result = []
+        for (const x of this.keyMap) {
+            if (x) {
+                for (const i of x) {
+                    result.push(i[1])
+                }
+            }
+        }
+        const set = new Set(result)
+        return set
+    }
+    
   }
 
